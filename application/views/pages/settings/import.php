@@ -15,13 +15,12 @@
 					<section class="uploaded-area"></section>
 				</div>
 				<div class="d-grid gap-2">
-					<button type="submit" id="btn-upload" class="btn btn-primary" disabled>Importar datos</button>
+					<button type="button" id="btn-upload" class="btn btn-primary" disabled>Importar datos</button>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
 <script>
 	var name = "";
 	const form = document.querySelector("form"),
@@ -61,22 +60,23 @@
 		}
 	}
 
-	$("#form-import-csv").submit(function(e) {
+	$("#btn-upload").click(function(e) {
 		e.preventDefault();
 		$.ajax({
 			type: "POST",
 			url: "<?= base_url('settingscontroller/upload_file') ?>",
-			data: new FormData(this),
+			data: new FormData(form),
 			contentType: false,
 			cache: false,
 			processData: false,
-			beforeSend: () => {
+			beforeSend: function() {
 
 			},
-			success: (response) => {
-
+			success: function(response) {
+				$.LoadingOverlay("hide");
 			},
-			error: (jqxhr) => {
+			error: function(jqxhr) {
+				$.LoadingOverlay("hide");
 
 			}
 		});

@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
  *
- * Controller ClientsController
+ * Controller ProductsController
  *
  * This controller for ...
  *
@@ -18,7 +18,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
  *
  */
 
-class ClientsController extends CI_Controller
+class ProductsController extends CI_Controller
 {
 
 	public function __construct()
@@ -27,18 +27,18 @@ class ClientsController extends CI_Controller
 		if (!$this->session->has_userdata('user_data')) {
 			redirect();
 		}
-		$this->load->model('clientesmodel');
+		$this->load->model('productosmodel');
 	}
 
 	public function index()
 	{
-		$this->loadlayout->load('pages/clients/clients');
-	}
 
-	public function load_clients()
+		$this->loadlayout->load('pages/products/products');
+	}
+	public function load_products()
 	{
 		if ($this->input->is_ajax_request()) {
-			$data = $this->clientesmodel->buscar_registro()->result();
+			$data = $this->productosmodel->buscar_registro()->result();
 
 			$this->output->set_status_header(200)->set_content_type('application/json')->set_output(json_encode($data));
 		} else show_404();
@@ -46,5 +46,5 @@ class ClientsController extends CI_Controller
 }
 
 
-/* End of file ClientsController.php */
-/* Location: ./application/controllers/ClientsController.php */
+/* End of file ProductsController.php */
+/* Location: ./application/controllers/ProductsController.php */

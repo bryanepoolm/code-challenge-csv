@@ -7,7 +7,7 @@
 				<hr>
 				<div class="wrapper">
 					<form enctype="multipart/form-data" id="form-import-csv">
-						<input class="file-input" type="file" name="file-xls" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" hidden>
+						<input class="file-input" type="file" name="file-xls" id="file-xls" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" hidden>
 						<i class="fas fa-cloud-upload-alt"></i>
 						<p>Seleccionar archivo CSV</p>
 					</form>
@@ -46,7 +46,7 @@
 			progressArea.innerHTML = "";
 			let uploadedHTML = `<li class="row-custom">
                             <div class="content upload">
-                              <i class="fas fa-file-alt"></i>
+                              <i class="fas fa-file-excel"></i>
                               <div class="details">
                                 <span class="name">${fileName} • Uploaded</span>
                               </div>
@@ -69,15 +69,21 @@
 			contentType: false,
 			cache: false,
 			processData: false,
-			beforeSend: function() {
-
+			beforeSend: () => {
+				document.getElementById("btn-upload").disabled = true;
+				document.getElementById("file-xls").disabled = true;
+				document.getElementById("btn-upload").innerText = 'Importando datos...';
 			},
-			success: function(response) {
-				$.LoadingOverlay("hide");
-			},
-			error: function(jqxhr) {
-				$.LoadingOverlay("hide");
+			success: (response) => {
 
+				document.getElementById("btn-upload").innerText = 'Datos importados!';
+				alert('Datos importados con exito');
+				window.location.href = "<?= base_url() ?>";
+			},
+			error: (jqxhr) => {
+				document.getElementById("btn-upload").disabled = false;
+				document.getElementById("file-xls").disabled = false;
+				document.getElementById("btn-upload").innerText = 'Importar datos';
 			}
 		});
 	});

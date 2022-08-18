@@ -2,18 +2,19 @@
 	<div class="col-12">
 		<div class="card">
 			<div class="card-body">
-				<h4 class="card-title">Clientes</h4>
+				<h4 class="card-title">Vendedores</h4>
 				<hr>
 				<table class="table table-sm table-hover table-striped">
 					<thead>
 						<tr>
 							<th>ID</th>
 							<th>Nombre</th>
+							<th>Direccion</th>
 						</tr>
 					</thead>
-					<tbody id="clients-table">
+					<tbody id="sellers-table">
 						<tr>
-							<td colspan="2">
+							<td colspan="3">
 								<center>Sin datos</center>
 							</td>
 						</tr>
@@ -25,10 +26,10 @@
 </div>
 
 <script>
-	$(document).ready(() => load_clients());
-	const load_clients = () => {
-		let table = $("#clients-table");
-		const request = $.get("<?= base_url('clientscontroller/load_clients') ?>");
+	$(document).ready(() => load_sellers());
+	const load_sellers = () => {
+		let table = $("#sellers-table");
+		const request = $.get("<?= base_url('sellerscontroller/load_sellers') ?>");
 		request.done((response) => {
 			if (response.length > 0) {
 				table.empty();
@@ -37,6 +38,7 @@
 					<tr>
 						<td>${val.id}</td>
 						<td>${val.nombre}</td>
+						<td>${val.direccion}</td>
 					</tr>
 				`);
 				});

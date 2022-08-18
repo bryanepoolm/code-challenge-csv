@@ -96,6 +96,12 @@
 						</a>
 					</li>
 					<li class="menu-item">
+						<a href="<?= base_url('orders') ?>" class="menu-link">
+							<i class="menu-icon fas fa-regular fa-box"></i>
+							<div data-i18n="Analytics">Ordenes</div>
+						</a>
+					</li>
+					<li class="menu-item">
 						<a href="<?= base_url('products') ?>" class="menu-link">
 							<i class="menu-icon fas fa-regular fa-box"></i>
 							<div data-i18n="Analytics">Productos</div>

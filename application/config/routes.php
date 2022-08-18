@@ -6,6 +6,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['home'] = 'homecontroller';
+$route['orders'] = 'orderscontroller';
 $route['clients'] = 'clientscontroller';
 $route['products'] = 'productscontroller';
 $route['sellers'] = 'sellerscontroller';

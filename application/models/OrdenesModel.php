@@ -54,6 +54,16 @@ class OrdenesModel extends CI_Model
 		return $this->db->get($this->table);
 	}
 
+	public function select_ordenes()
+	{
+		$this->db->select("o.id,c.nombre AS cliente, v.nombre AS vendedor, v.direccion, p.nombre AS producto,o.total, o.cantidad");
+		$this->db->from('ordenes AS o');
+		$this->db->join('clientes AS c', 'c.id = o.cliente_id');
+		$this->db->join('productos AS p', 'p.id = o.producto_id');
+		$this->db->join('vendedores AS v', 'v.id = o.vendedor_id');
+		return $this->db->get();
+	}
+
 	// ------------------------------------------------------------------------
 
 }

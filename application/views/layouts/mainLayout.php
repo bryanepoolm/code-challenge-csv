@@ -92,25 +92,25 @@
 					<li class="menu-item">
 						<a href="<?= base_url('home') ?>" class="menu-link">
 							<i class="menu-icon tf-icons fas fa-home"></i>
-							<div data-i18n="Analytics">Inicio</div>
+							<div>Inicio</div>
 						</a>
 					</li>
 					<li class="menu-item">
 						<a href="<?= base_url('orders') ?>" class="menu-link">
-							<i class="menu-icon fas fa-regular fa-box"></i>
-							<div data-i18n="Analytics">Ordenes</div>
+							<i class="menu-icon fas fa-regular fa-bookmark"></i>
+							<div>Ordenes</div>
 						</a>
 					</li>
 					<li class="menu-item">
 						<a href="<?= base_url('products') ?>" class="menu-link">
 							<i class="menu-icon fas fa-regular fa-box"></i>
-							<div data-i18n="Analytics">Productos</div>
+							<div>Productos</div>
 						</a>
 					</li>
 					<li class="menu-item">
 						<a href="<?= base_url('clients') ?>" class="menu-link">
 							<i class="menu-icon tf-icons fas fa-users"></i>
-							<div data-i18n="Analytics">Clientes</div>
+							<div>Clientes</div>
 						</a>
 					</li>
 					<li class="menu-item">
